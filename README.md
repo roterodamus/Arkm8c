@@ -57,7 +57,7 @@ Older versions:
 
 A very special thanks to:
 
-Trash80 - Ditrtywave - [Dirtywave](https://dirtywave.com/)
+Trash80 - [Dirtywave](https://dirtywave.com/)
 
 and to the creators of:
 - [M8C](https://github.com/laamaa/m8c)
