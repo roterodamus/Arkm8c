@@ -4,9 +4,9 @@ Operating System for the R36S game console running only M8C
 
 ## Download link:
 
-Arkm8c.tar.xz 1.5 - 909 MB
-- [Google Drive link](https://bit.ly/arkm8c15)
-- [MEGA link](https://bit.ly/arkm8c15M)
+Arkm8c.tar.xz 1.5 - 895.5 MB
+- [Google Drive link](https://bit.ly/arkm8c16)
+- [MEGA link](https://bit.ly/arkm8c16M)
 
 Use BalenaEtcher to write the tar.xz file to an SD card.
 [Download BalenaEtcher](https://etcher.balena.io/)
@@ -34,6 +34,10 @@ Headphone problems with the R36S? This adapter might solve it:
 
 ## Changelog:
 
+v1.6 - updated m8c to version 1.7.8
+- added support for analog sticks in m8c
+(Disable analog by renaming gamecontrollerdb.txtBAK to gamecontrollerdb.txt in  ~/.local/share/m8c)
+
 v1.5 - updated M8C to version 1.7.6
 - removed support for analog sticks in M8C
 
@@ -55,7 +59,7 @@ Older versions:
 - [v1.1](https://bit.ly/arkm8c1xz)
 - [v1.3](https://bit.ly/arkm8c13)
 - [v1.4](https://bit.ly/arkm8c14)
-
+- [v1.5](https://bit.ly/arkm8c15)
 ## A very special thanks to:
 
 - Trash80 - [Dirtywave](https://dirtywave.com/)
