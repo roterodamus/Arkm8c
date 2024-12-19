@@ -4,7 +4,7 @@ Operating System for the R36S game console running only M8C
 
 ## Download link:
 
-Arkm8c.tar.xz 1.5 - 895.5 MB
+Arkm8c.tar.xz 1.6 - 895.5 MB
 - [Google Drive link](https://bit.ly/arkm8c16)
 - [MEGA link](https://bit.ly/arkm8c16M)
 
