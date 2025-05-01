@@ -4,18 +4,15 @@ Operating System for the R36S game console running only M8C
 
 ## Download link:
 
-Arkm8c.tar.xz 1.6 - 895.5 MB
-- [Google Drive link](https://bit.ly/arkm8c16)
-- [MEGA link](https://bit.ly/arkm8c16M)
+Arkm8c.tar.xz 2.0 - 892.7 MB
+- [Google Drive link](https://bit.ly/arkm8c2)
+- [MEGA link](https://bit.ly/arkm8c2M)
+
 
 Use BalenaEtcher to write the tar.xz file to an SD card.
 [Download BalenaEtcher](https://etcher.balena.io/)
 
 For version 1.3 and up, there is no need to uncompress it first.
-
-#### You can find and change gamepad and other settings related to M8C or i3 in the /boot partition in a folder called "m8c-settings".
-
-### ❗❗❗ If you experience latency after starting your device, put it in standby mode by pressing the power button and wake it up again. Your device will appear unresponsive for a couple of seconds, but after a short wait, it should work fine. ❗❗❗
 
 ## Controls:
 - D-pad = Navigation
@@ -23,8 +20,7 @@ For version 1.3 and up, there is no need to uncompress it first.
 - A = Options
 - Y or L2 = Shift
 - X or R2 = Play
-- R3 + Up or Down = Brightness Up or Down
-- FN + Select = Shutdown
+- R3 + Volume Up or Down = Brightness Up or Down
 
 ## Problems
 If you get nothing but a black screen after booting, copy the `rk3326-r35s-linux.dtb` file from the original SD card's /boot partition that came with your device. Then replace/rename it to `rk3326-r36s-linux.dtb` in the /boot partition of your fresh Arkm8c SD card.
@@ -33,6 +29,12 @@ Headphone problems with the R36S? This adapter might solve it:
 - [AliExpress link](https://bit.ly/43hYwXj)
 
 ## Changelog:
+
+v2.0 - major update more responsive 
+- removed all the x11 bloat (i3, lightdm, ect) 
+- now uses jackd server
+- midi support added in the ~/jjack.sh launch script
+- updated m8c to version 1.7.10
 
 v1.6 - updated m8c to version 1.7.8
 - added support for analog sticks in m8c
@@ -60,6 +62,7 @@ Older versions:
 - [v1.3](https://bit.ly/arkm8c13)
 - [v1.4](https://bit.ly/arkm8c14)
 - [v1.5](https://bit.ly/arkm8c15)
+- [v1.6](https://bit.ly/arkm8c16)
 ## A very special thanks to:
 
 - Trash80 - [Dirtywave](https://dirtywave.com/)
