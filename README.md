@@ -40,6 +40,7 @@ v2.0 - major update more responsive
 - removed all the x11 bloat (i3, lightdm, ect) 
 - now uses jackd server
 - midi support added in the ~/jjack.sh launch script
+- usb audio with in/out can be configured in ~/jjack.sh 
 - updated m8c to version 1.7.10
 
 v1.6 - updated m8c to version 1.7.8
