@@ -20,7 +20,8 @@ For version 1.3 and up, there is no need to uncompress it first.
 - A = Options
 - Y or L2 = Shift
 - X or R2 = Play
-- R3 + Volume Up or Down = Brightness Up or Down
+- R3 + D-pad Up or Down = Brightness Up or Down
+- Power Button = shut down
 
 ## Problems
 If you get nothing but a black screen after booting, copy the `rk3326-r35s-linux.dtb` file from the original SD card's /boot partition that came with your device. Then replace/rename it to `rk3326-r36s-linux.dtb` in the /boot partition of your fresh Arkm8c SD card.
@@ -40,7 +41,9 @@ v2.0 - major update more responsive
 - removed all the x11 bloat (i3, lightdm, ect) 
 - now uses jackd server
 - midi support added in the ~/jjack.sh launch script
-- usb audio with in/out can be configured in ~/jjack.sh 
+- usb audio with in/out can be configured in ~/jjack.sh
+- boots-up and shuts down faster
+- removed suspend power button behavior, now shuts down
 - updated m8c to version 1.7.10
 
 v1.6 - updated m8c to version 1.7.8
