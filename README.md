@@ -28,6 +28,12 @@ If you get nothing but a black screen after booting, copy the `rk3326-r35s-linux
 Headphone problems with the R36S? This adapter might solve it:
 - [AliExpress link](https://bit.ly/43hYwXj)
 
+- you can ssh into arkos to do some problem solving.
+
+  User: ark
+
+  Password: ark
+
 ## Changelog:
 
 v2.0 - major update more responsive 
