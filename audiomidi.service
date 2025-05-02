@@ -1,0 +1,16 @@
+[Unit]
+Description=Audio Setup and MIDI Bridge Script
+After=sound.target network.target
+Wants=sound.target
+
+[Service]
+ExecStart=/home/ark/jjack.sh
+WorkingDirectory=/home/ark/
+Restart=always
+RestartSec=5
+User=ark
+Environment=JACK_NO_AUDIO_RESERVATION=1
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1002/bus
+
+[Install]
+WantedBy=multi-user.target
