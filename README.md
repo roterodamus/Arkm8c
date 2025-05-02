@@ -36,7 +36,8 @@ Headphone problems with the R36S? This adapter might solve it:
   Password: ark
 
 ## Changelog:
-v2.1 - added auto-connect routine for 1 audio (2 -in 2 -out), and 1 midi device. (connect before boot and cross your fingers)
+v2.1 - added auto-connect routine for 1 audio (2 -in 2 -out), and 1 midi device.
+having everything connected to a powered usb-hub helps (connect before boot and cross your fingers)
 - found out right channel is mirrored to the left. (R36S hardware issue????)
 
 v2.0 - major update more responsive 
