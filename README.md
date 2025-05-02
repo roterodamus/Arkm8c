@@ -4,9 +4,9 @@ Operating System for the R36S game console running only M8C
 
 ## Download link:
 
-Arkm8c.tar.xz 2.0 - 892.7 MB
-- [Google Drive link](https://bit.ly/arkm8c2)
-- [MEGA link](https://bit.ly/arkm8c2M)
+Arkm8c.tar.xz 2.1 - 892.3 MB
+- [Google Drive link](https://bit.ly/arkm8c21)
+- [MEGA link](https://bit.ly/arkm8c21M)
 
 
 Use BalenaEtcher to write the tar.xz file to an SD card.
@@ -36,6 +36,8 @@ Headphone problems with the R36S? This adapter might solve it:
   Password: ark
 
 ## Changelog:
+v2.1 - added auto-connect routine for 1 audio (2 -in 2 -out), and 1 midi device. (connect before boot and cross your fingers)
+- found out right channel is mirrored to the left. (R36S hardware issue????)
 
 v2.0 - major update more responsive 
 - removed all the x11 bloat (i3, lightdm, ect) 
