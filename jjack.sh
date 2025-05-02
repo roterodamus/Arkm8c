@@ -1,10 +1,7 @@
 #!/bin/bash
 
 # CONFIGURATION
-soundcard1="0,0"        # rockchip,rk817-codec
-soundcard2="1,0"        # M8 (use 7,0 if needed)
-midi_controller="YourControllerName"  # Set from `aconnect -l`
-m8_midi="M8"
+primary_card_manual=""       # Set to e.g. "2,0" to override auto-detection
 buffersize=1024
 samplerate=44100
 period=4
@@ -19,62 +16,72 @@ cleanup() {
 }
 trap cleanup EXIT
 
-# START JACKD IF NOT RUNNING
+# DETECT PRIMARY SOUNDCARD (if not set manually)
+detect_primary_card() {
+  for card_index in $(aplay -l | grep '^card' | awk -F':' '{print $1}' | awk '{print $2}' | sort -n); do
+    if ! aplay -l | grep -A1 "^card $card_index" | grep -q "M8"; then
+      echo "$card_index,0"
+      return
+    fi
+  done
+  echo "0,0"  # fallback
+}
+
+if [ -n "$primary_card_manual" ]; then
+  primary_card="$primary_card_manual"
+  echo "Using manually set primary soundcard: $primary_card"
+else
+  primary_card=$(detect_primary_card)
+  echo "Auto-detected primary soundcard: $primary_card"
+fi
+
+m8_card="1,0"
+echo "Using M8 soundcard: $m8_card"
+
+# START JACKD
 if pgrep -x jackd >/dev/null; then
   echo "JACK server already running."
 else
-  jackd -d alsa -d hw:${soundcard1} -r "$samplerate" -p "$buffersize" &
+  jackd -d alsa -d hw:$primary_card -r "$samplerate" -p "$buffersize" &
   sleep 2
 fi
 
-# SETUP SOUND CARD 1 (rk817)
-if aplay -l | grep -q "rockchip,rk817-codec"; then
-  echo "rk817 codec detected, connecting..."
-  alsa_in -j "rk817_in" -d hw:${soundcard1} -r "$samplerate" -p "$buffersize" -n "$period" -c 2 &
-  alsa_out -j "rk817_out" -d hw:${soundcard1} -r "$samplerate" -p "$buffersize" -n "$period" -c 2 &
-else
-  echo "rk817 codec not detected, skipping."
-fi
+# SETUP AUDIO INTERFACES
+alsa_in -j "Primary_in" -d hw:$primary_card -r "$samplerate" -p "$buffersize" -n "$period" -c 2 &
+alsa_out -j "Primary_out" -d hw:$primary_card -r "$samplerate" -p "$buffersize" -n "$period" -c 2 &
 
-# SETUP SOUND CARD 2 (M8)
-alsa_in -j "M8_in" -d hw:${soundcard2} -r "$samplerate" -p "$buffersize" -n "$period" -c 2 &
-alsa_out -j "M8_out" -d hw:${soundcard2} -r "$samplerate" -p "$buffersize" -n "$period" -c 2 &
+alsa_in -j "M8_in" -d hw:$m8_card -r "$samplerate" -p "$buffersize" -n "$period" -c 2 &
+alsa_out -j "M8_out" -d hw:$m8_card -r "$samplerate" -p "$buffersize" -n "$period" -c 2 &
 sleep 1
 
-# FUNCTION TO CONNECT JACK PORTS IF AVAILABLE
+# JACK CONNECTION FUNCTION
 connect_if_possible() {
   if jack_lsp | grep -q "$1" && jack_lsp | grep -q "$2"; then
-    jack_connect "$1" "$2" 2>/dev/null || echo "Warning: Failed to connect $1 -> $2"
+    jack_connect "$1" "$2" 2>/dev/null || echo "Warning: Failed to connect $1 → $2"
   fi
 }
 
-# JACK AUDIO ROUTING
+# AUDIO ROUTING
 connect_if_possible "M8_in:capture_1" system:playback_1
 connect_if_possible "M8_in:capture_2" system:playback_2
 connect_if_possible system:capture_1 "M8_out:playback_1"
 connect_if_possible system:capture_2 "M8_out:playback_2"
 
-# MIDI BRIDGE SETUP
+# MIDI BRIDGE
 if ! pgrep -x a2jmidid >/dev/null; then
   a2jmidid -e &
   sleep 1
-else
-  echo "a2jmidid already running."
 fi
 
-# CONNECT MIDI CONTROLLER IF NAMES SET
-if [ -n "$midi_controller" ] && [ -n "$m8_midi" ]; then
-  controller_port=$(jack_lsp | grep -m1 "a2j:${midi_controller}.*capture")
-  m8_port=$(jack_lsp | grep -m1 "a2j:${m8_midi}.*playback")
+# AUTO-CONNECT FIRST AVAILABLE CONTROLLER TO M8
+controller_port=$(jack_lsp | grep -m1 "a2j:.*capture")
+m8_port=$(jack_lsp | grep -m1 "a2j:M8.*playback")
 
-  if [ -n "$controller_port" ] && [ -n "$m8_port" ]; then
-    echo "Connecting MIDI: $controller_port → $m8_port"
-    jack_connect "$controller_port" "$m8_port"
-  else
-    echo "MIDI ports not found. Controller: $controller_port, M8: $m8_port"
-  fi
+if [ -n "$controller_port" ] && [ -n "$m8_port" ]; then
+  echo "Connecting MIDI: $controller_port → $m8_port"
+  jack_connect "$controller_port" "$m8_port"
 else
-  echo "MIDI controller or M8 MIDI name not set. Skipping MIDI connection."
+  echo "MIDI ports not found. Controller: $controller_port, M8: $m8_port"
 fi
 
 # KEEP SCRIPT ALIVE
