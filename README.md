@@ -12,8 +12,6 @@ Arkm8c.tar.xz 2.1 - 892.3 MB
 Use BalenaEtcher to write the tar.xz file to an SD card.
 [Download BalenaEtcher](https://etcher.balena.io/)
 
-For version 1.3 and up, there is no need to uncompress it first.
-
 ## Controls:
 - D-pad = Navigation
 - B = Edit
