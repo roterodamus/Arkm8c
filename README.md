@@ -1,6 +1,9 @@
 # Arkm8c
 
-Operating System for the R36S game console running only M8C
+Operating System for the R36S game console running only M8C based on ArkOs
+
+#### check out ArmbianM8C
+- [Armbianm8c](https://github.com/roterodamus/armbianm8c/)
 
 ## Download link:
 Armbianm8c.tar.xz 0.1 - 435.2 MB
