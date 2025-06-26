@@ -3,6 +3,8 @@
 Operating System for the R36S game console running only M8C
 
 ## Download link:
+Armbianm8c.tar.xz 0.1 - 435.2 MB
+- [Google Drive link](https://bit.ly/armbianm8c)
 
 Arkm8c.tar.xz 2.1 - 892.3 MB
 - [Google Drive link](https://bit.ly/arkm8c21)
@@ -79,6 +81,7 @@ Older versions:
 
 ### and to the creators of:
 - [M8C](https://github.com/laamaa/m8c)
+- [EatPrilosec / Armbian for R36S](https://github.com/R36S-Stuff/R36S-Armbian)
 - [arkos](https://github.com/christianhaitian/a...)
 - [pishrink](https://github.com/Drewsif/PiShrink)
 - and the entire FOSS Linux community.
