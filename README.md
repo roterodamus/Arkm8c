@@ -1,11 +1,12 @@
-# Arkm8c
 
+# ArkM8c should be considered deprecated.
+### check out [ArmbianM8C](https://github.com/roterodamus/armbianm8c/)
+
+## Arkm8c (deprecated)
 Operating System for the R36S game console running only M8C based on ArkOs
 
-#### check out ArmbianM8C
-- [Armbianm8c](https://github.com/roterodamus/armbianm8c/)
 
-## Download link:
+### Download link:
 Armbianm8c.tar.xz 0.1 - 435.2 MB
 - [Google Drive link](https://bit.ly/armbianm8c)
 
@@ -17,7 +18,7 @@ Arkm8c.tar.xz 2.1 - 892.3 MB
 Use BalenaEtcher to write the tar.xz file to an SD card.
 [Download BalenaEtcher](https://etcher.balena.io/)
 
-## Controls:
+### Controls:
 - D-pad = Navigation
 - B = Edit
 - A = Options
@@ -26,7 +27,7 @@ Use BalenaEtcher to write the tar.xz file to an SD card.
 - R3 + D-pad Up or Down = Brightness Up or Down
 - Power Button = shut down
 
-## Problems
+### Problems
 If you get nothing but a black screen after booting, copy the `rk3326-r35s-linux.dtb` file from the original SD card's /boot partition that came with your device. Then replace/rename it to `rk3326-r36s-linux.dtb` in the /boot partition of your fresh Arkm8c SD card.
 
 Headphone problems with the R36S? This adapter might solve it:
@@ -38,7 +39,7 @@ Headphone problems with the R36S? This adapter might solve it:
 
   Password: ark
 
-## Changelog:
+### Changelog:
 v2.1 - added auto-connect routine for 1 audio (2 -in 2 -out), and 1 midi device.
 having everything connected to a powered usb-hub helps (connect before boot and cross your fingers)
 - found out right channel is mirrored to the left. (R36S hardware issue????)
@@ -78,11 +79,11 @@ Older versions:
 - [v1.4](https://bit.ly/arkm8c14)
 - [v1.5](https://bit.ly/arkm8c15)
 - [v1.6](https://bit.ly/arkm8c16)
-## A very special thanks to:
+### A very special thanks to:
 
 - Trash80 - [Dirtywave](https://dirtywave.com/)
 
-### and to the creators of:
+#### and to the creators of:
 - [M8C](https://github.com/laamaa/m8c)
 - [EatPrilosec / Armbian for R36S](https://github.com/R36S-Stuff/R36S-Armbian)
 - [arkos](https://github.com/christianhaitian/a...)
