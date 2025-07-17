@@ -1,6 +1,6 @@
 
 # ArkM8c should be considered deprecated.
-### check out [ArmbianM8C](https://github.com/roterodamus/armbianm8c/)
+### This project has moved to [ArmbianM8C](https://github.com/roterodamus/armbianm8c/)
 
 ## Arkm8c (deprecated)
 Operating System for the R36S game console running only M8C based on ArkOs
